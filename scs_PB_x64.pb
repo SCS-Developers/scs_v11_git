@@ -1,0 +1,23 @@
+; File: scs_PB_x64.pb
+
+EnableExplicit
+
+; PurifierGranularity(#PB_Ignore, #PB_Ignore, 10, #PB_Ignore)
+
+; conditional compilation constants
+#cDemo = #False
+#cWorkshop = #False
+
+; compile for a language translator?
+#cTranslator = #False
+
+; Tutorial Video and Screen Shot settings
+#cTutorialVideoOrScreenShots = #False
+
+#cAgent = #False
+
+#SCS_DEFAULT_LANGUAGE = "ENUS"
+
+XIncludeFile "TopLevel.pbi"
+
+; EOF
