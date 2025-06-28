@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Last updated 9Jun2025 (see also XML tag <LastUpdated>) -->
+
+<!-- MsgData fields:
+Example: BN 63 $P2+20 BN 62 20 BN 06 $V1 BN 26 $P1+0C
+
+Each item (eg BN) will result in one byte in the message. Items must be separated by a single space character, and no spaces may occur within an item. However, any leading or trailing spaces will be removed.
+Hexadecimal is assumed throughout.
+
+'Mute' MsgData entries have two strings separated by a semi-colon (;). The first string is the MsgData for 'mute', and the second string is for 'unmute'. Any leading or trailing spaces in the selected string will be removed.
+
+Characters in the range 0 to F are hexadecimal values, eg B = decimal 11. Many byte values are entered as 2 digits for clarity, but SCS will accept either 1 or 2 digits, eg 06 and 6 are both accepted as the value 6.
+Character N will be replaced by the MIDI channel that the mixer or device expects MIDI messages to use, ie this is not a mixer fader channel.
+
+The string $P1 will be replaced by the value of 'parameter 1', typically derived from a combobox in the Control Send editor screen. The value is ALWAYS zero-based, eg for FX3 $P1 will be 2.
+The string $P2 will be replaced by the value of 'parameter 2', typically derived from a grid. The value is ALWAYS zero-based, eg for input channel 24 $P2 will be 23.
+If .2 (or similar) follows $P1 or $P2, eg $P2.2, then this means the value is to be saved as a 2-digit number, eg 01 instead of 1.
+
+Strings $S1 and $S2 are the same as $P1 and $P2 except that the parameter values will be converted to hex strings, eg parameter value 2 will be converted to 32, parameter value GN (green in X32color) will be converted to 47 4E.
+
+If .2 (or similar) follows $S1 or $S2, eg $S2.2, then this means the string value is to be saved as a 2-digit number, eg 01 instead of 1.
+Strings $H, $h, $T, $t, $U and $u are used for hundreds, tens and units of 'parameter 1', but in this case the value is treated as 1-based, not zero-based. EG for scene 87 $H (or $h) will be 0, $T (or $t) will be 8, and $U (or $u) will be 7.
+
+Example MsgData from AurusPlat: $h+30 $t+30 $U+30
+In this example, if the parameter 1 value is 456 then this will result in Hex 343536. Lower case $h means that if the value is less than 100 than that byte will be omitted. Uppercase $H means the byte will always be included, regardless of the value.
+Similarly with $t and $T, although it would be incorrect to use $t against $H (although SCS doesn't check this). The units identifiers $U and $u are both treated as $U, ie the units byte will always be included, even if the value is zero.
+
+If there are multiple items selected (eg multiple input channels selected in a grid) then SCS will generate a separate MIDI message for each selected item, populating $P1 and/or $P2 as appropriate for each selected item.
+The strings $V1 and $V2 are used for fader levels. As these require two bytes, $V1 will be replaced by the MSB and $V2 by the LSB.
+
+Simple arithmetic operations are also supported, and are ALWAYS processed left-to-right, ie * (multiply) and / (divide) do NOT take priority.
+The operator ~ means 'multiple by the negative of the the value', eg ~1 means 'multiply by -1' (requires SCS 11.9.5 or later).
+The operator # means the preceding calculation is to be passed to a customised algorithm, eg #1 means the preceding calculation is to be passed to customised algorithm #1.
+Double-quotes (") around a string, eg "/dca/", mean that this is acharacter string that is to be converted to hex characters. For example, "/dca/" will be saved as 2F 44 43 41 2F.
+-->
+
+<CSRemDevs>
+  <LastUpdated>20250609</LastUpdated> <!-- yyyymmdd -->
+  <LangInfo LangCode="ENUS">
+    <LangGrp LangGrp="Dev">
+      <LangItem LangItem="BR_X32">Behringer X32 Digital Mixer</LangItem>
+      <LangItem LangItem="BR_XAIR">Behringer X AIR Series</LangItem>
+      <LangItem LangItem="BR_WING">Behringer Wing Series</LangItem>
+      <LangItem LangItem="AH_Qu">A&amp;H Qu Series</LangItem>
+      <LangItem LangItem="AH_SQ">A&amp;H SQ Series</LangItem>
+      <LangItem LangItem="AH_dL">A&amp;H dLive Series</LangItem>
+      <LangItem LangItem="AH_AV">A&amp;H Avantis Series</LangItem>
+      <LangItem LangItem="YAM_LS">Yamaha LS</LangItem>
+      <!-- <LangItem LangItem="YAM_M7CL">Yamaha M7CL</LangItem> -->
+      <LangItem LangItem="AurusPlat">Stagetec Aurus/Crescendo</LangItem>
+      <LangItem LangItem="NW_X32">Behringer X32 Digital Mixer</LangItem>
+    </LangGrp>
+    <LangGrp LangGrp="Msg">
+      <!-- "Msg" language item entries are common to all devices -->
+      <LangItem LangItem="GoScene" Short="Go">Go Scene</LangItem>
+      <LangItem LangItem="GoSnippet" Short="Go">Go Snippet</LangItem>
+      <LangItem LangItem="GoCue" Short="Go">Go Cue</LangItem>
+      <LangItem LangItem="GoCue0xx" Short="Go">Go Cue (0-99)</LangItem>
+      <LangItem LangItem="GoCue1xx" Short="Go">Go Cue (100-199)</LangItem>
+      <LangItem LangItem="GoCue2xx" Short="Go">Go Cue (200-299)</LangItem>
+      <LangItem LangItem="GoCue3xx" Short="Go">Go Cue (300-399)</LangItem>
+      <LangItem LangItem="GoCue4xx" Short="Go">Go Cue (400-499)</LangItem>
+      <LangItem LangItem="GoSnapshot" Short="Go">Go Snapshot</LangItem>
+      <LangItem LangItem="RecallScene" Short="Recall">Recall Scene</LangItem>
+      <LangItem LangItem="RecallSnapshot" Short="Recall">Recall Snapshot</LangItem>
+      <LangItem LangItem="GoNextSnapshot" Short="Go">Go Next Snapshot</LangItem>
+      <LangItem LangItem="GoNextScene" Short="Go">Go Next Scene</LangItem>
+      <LangItem LangItem="RecallNextScene" Short="Go">Recall Next Scene</LangItem>
+      <LangItem LangItem="RecallPrevScene" Short="Go">Recall Previous Scene</LangItem>
+      <LangItem LangItem="ChangeScene" Short="Change">Change Scene</LangItem>
+      <LangItem LangItem="MuteAudGrp" Short="MuteAudGrp">Mute/Unmute Audio Groups</LangItem>
+      <LangItem LangItem="MuteCh">Mute/Unmute Channels</LangItem>
+      <LangItem LangItem="MuteStIn">Mute/Unmute Stereo Ins</LangItem>
+      <LangItem LangItem="MuteUSBIn">Mute/Unmute USB Ins</LangItem>
+      <LangItem LangItem="MuteDCA">Mute/Unmute DCAs</LangItem>
+      <LangItem LangItem="MuteAuxIn">Mute/Unmute Aux Ins</LangItem>
+      <LangItem LangItem="MuteAuxSnd">Mute/Unmute Aux Sends</LangItem>
+      <LangItem LangItem="MuteAuxRtn">Mute/Unmute Aux Returns</LangItem>
+      <LangItem LangItem="MuteFXSnd">Mute/Unmute FX Sends</LangItem>
+      <LangItem LangItem="MuteFXRtn">Mute/Unmute FX Returns</LangItem>
+      <LangItem LangItem="MuteBus">Mute/Unmute Buses</LangItem>
+      <LangItem LangItem="MuteMix">Mute/Unmute Mixes</LangItem>
+      <LangItem LangItem="MuteMtx">Mute/Unmute Matrixes</LangItem>
+      <LangItem LangItem="MuteMuteGrp">Mute/Unmute 'Mute Groups'</LangItem>
+      <LangItem LangItem="MuteLR">Mute/Unmute Main LR</LangItem>
+      <LangItem LangItem="MuteMC">Mute/Unmute Main M/C</LangItem>
+      <LangItem LangItem="MuteStereo">Mute/Unmute Stereo Master</LangItem>
+      <LangItem LangItem="ChFader">Set Channel Levels</LangItem>
+      <LangItem LangItem="ChFXFader">Set FX Send Channel Levels</LangItem>
+      <LangItem LangItem="ChDCAFader">Set DCA Channel Levels</LangItem>
+      <LangItem LangItem="ChMixFader">Set Mix Channel Levels</LangItem>
+      <LangItem LangItem="ChMtxFader">Set Matrix Channel Levels</LangItem>
+      <LangItem LangItem="ChGrpFader">Set Group Channel Levels</LangItem>
+      <LangItem LangItem="StInFader">Set Stereo In Levels</LangItem>
+      <LangItem LangItem="USBInFader">Set USB In Levels</LangItem>
+      <LangItem LangItem="MasterFader">Set Master Fader</LangItem>
+      <LangItem LangItem="LRFader">Set LR Fader</LangItem>
+      <LangItem LangItem="MCFader">Set M/C Fader</LangItem> <!-- M/C = Mono/Center -->
+      <LangItem LangItem="StereoMaster">Set Stereo Master</LangItem>
+      <LangItem LangItem="DCAFader">Set DCA Levels</LangItem>
+      <LangItem LangItem="MixFader">Set Mix Levels</LangItem>
+      <LangItem LangItem="BusFader">Set Bus Levels</LangItem>
+      <LangItem LangItem="AudGrpFader">Set Audio Group Levels</LangItem>
+      <LangItem LangItem="StAudGrpFader">Set Stereo Audio Group Levels</LangItem>
+      <LangItem LangItem="FXSndFader">Set FX Send Levels</LangItem>
+      <LangItem LangItem="StFXSndFader">Set Stereo FX Send Levels</LangItem>
+      <LangItem LangItem="MasterFXSndFader">Set Master FX Send Level</LangItem>
+      <LangItem LangItem="FXRtnFader">Set FX Return Levels</LangItem>
+      <LangItem LangItem="AuxInFader">Set Aux In Levels</LangItem>
+      <LangItem LangItem="AuxSndFader">Set Aux Send Levels</LangItem>
+      <LangItem LangItem="StAuxSndFader">Set Stereo Aux Send Levels</LangItem>
+      <LangItem LangItem="MtxFader">Set Matrix Levels</LangItem>
+      <LangItem LangItem="StMtxFader">Set Stereo Matrix Levels</LangItem>
+      <LangItem LangItem="ChColor">Set Channel Color</LangItem>
+      <LangItem LangItem="DCAColor">Set DCA Color</LangItem>
+    </LangGrp>
+    <LangGrp LangGrp="Val">
+      <!-- "Val" language item entries are common to all message types for all devices -->
+      <!-- ValSS="Y" means the item is to be included in scribble strips -->
+      <LangItem LangItem="Next">Next</LangItem>
+      <LangItem LangItem="Scene" ValSS="Y">Scene</LangItem> <!-- Added ValSS 26Nov2022 -->
+      <LangItem LangItem="Snippet">Snippet</LangItem>
+      <LangItem LangItem="Cue">Cue</LangItem>
+      <LangItem LangItem="Snapshot">Snapshot</LangItem>
+      <LangItem LangItem="Group" ValSS="Y">Group</LangItem>
+      <LangItem LangItem="StGroup" ValSS="Y">Stereo Group</LangItem>
+      <LangItem LangItem="Channel" ValSS="Y">Channel</LangItem>
+      <LangItem LangItem="StIn" ValSS="Y">Stereo In</LangItem>
+      <LangItem LangItem="USBIn" ValSS="Y">USB In</LangItem>
+      <LangItem LangItem="DCA" ValSS="Y">DCA</LangItem>
+      <LangItem LangItem="AuxIn" ValSS="Y">Aux In</LangItem>
+      <LangItem LangItem="AuxSnd" ValSS="Y">Aux Send</LangItem>
+      <LangItem LangItem="StAuxSnd" ValSS="Y">Stereo Aux Send</LangItem>
+      <LangItem LangItem="AuxRtn" ValSS="Y">Aux Return</LangItem>
+      <LangItem LangItem="FXSnd" ValSS="Y">FX Send</LangItem>
+      <LangItem LangItem="StFXSnd" ValSS="Y">Stereo FX Send</LangItem>
+      <LangItem LangItem="FXRtn" ValSS="Y">FX Return</LangItem>
+      <LangItem LangItem="Bus" ValSS="Y">Bus</LangItem>
+      <LangItem LangItem="StBus" ValSS="Y">Stereo Bus</LangItem>
+      <LangItem LangItem="Mix" ValSS="Y">Mix</LangItem>
+      <LangItem LangItem="Mtx" ValSS="Y">Matrix</LangItem>
+      <LangItem LangItem="StMtx" ValSS="Y">Stereo Matrix</LangItem>
+      <LangItem LangItem="MuteGrp" ValSS="Y">Mute Group</LangItem>
+      <LangItem LangItem="LR">Main LR</LangItem>
+      <LangItem LangItem="MC">Main M/C</LangItem> <!-- M/C = Mono/Center -->
+      <LangItem LangItem="Stereo">Stereo Master</LangItem>
+      <LangItem LangItem="Color">Color</LangItem>
+      <LangItem LangItem="Mono Aux" ValSS="Y">Mono Aux</LangItem>
+      <LangItem LangItem="Stereo Aux" ValSS="Y">Stereo Aux</LangItem>
+      <LangItem LangItem="MtxFader" ValSS="Y">Matrix Fader</LangItem>
+      <LangItem LangItem="StMtxFader" ValSS="Y">Stereo Matrix Fader</LangItem>
+    </LangGrp>
+    <LangGrp LangGrp="Fdr">
+      <!-- "Fdr" language item entries are common to all message types for all devices -->
+      <LangItem LangItem="LeveldB">Level (dB)</LangItem>
+    </LangGrp>
+  </LangInfo>
+  
+  <DevType DevType="MIDI">
+    <RemDev DevCode="AH_Qu" DfltMIDIChan="1">
+      <ValidValues ValType="Scene">Scene(1-100)</ValidValues>
+      <ValidValues ValType="AudGrp" ValLangItem="Group">Grp1-2,Grp3-4,Grp5-6,Grp7-8</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-4)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-4)</ValidValues>
+      <ValidValues ValType="FXSnd">FX(1-4)</ValidValues>
+      <!-- <ValidValues ValType="Chan" ValLangItem="Channel" ValRangeLimits="32,35">Ch(1-32),ST(1-3)</ValidValues> -->
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-32)</ValidValues>
+      <ValidValues ValType="StIn">ST(1-3)</ValidValues>
+      <ValidValues ValType="LR">LR</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-4)</ValidValues>
+      <ValidValues ValType="Matrix" ValLangItem="Mtx">Mtx1-2,Mtx3-4</ValidValues>
+      <ValidValues ValType="Mix">Mix(1-4),Mix5-6,Mix7-8,Mix9-10</ValidValues>
+      <!-- <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=74,0=6B,-5=61,-10=57,-15=4D,-20=43,-25=39,-30=2F,-35=25,-40=1B,-45=11</FaderData> AS PUBLISHED -->
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7D,+5=70,0=5F,-5=4B,-10=3C,-15=34,-20=2D,-25=25,-30=1D,-35=16,-40=0E,-45=06,-50=00</FaderData> <!-- AS OBSERVED -->
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">BN 00 00 BN 20 00 CN $P1</MsgData>
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan">9N $P1+20 7F; 9N $P1+20 3F</MsgData>
+      <MsgData MsgType="MuteStIn" ValidValuesType="StIn">9N $P1+40 7F; 9N $P1+40 3F</MsgData>
+      <MsgData MsgType="MuteDCA" ValidValuesType="DCA">9N $P1+10 7F; 9N $P1+10 3F</MsgData>
+      <MsgData MsgType="MuteFXRtn" ValidValuesType="FXRtn">9N $P1+08 7F; 9N $P1+08 3F</MsgData>
+      <MsgData MsgType="MuteMix" ValidValuesType="Mix">9N $P1+60 7F; 9N $P1+60 3F</MsgData>
+      <MsgData MsgType="MuteAudGrp" ValidValuesType="AudGrp">9N $P1+68 7F; 9N $P1+68 3F</MsgData>
+      <MsgData MsgType="MuteMtx" ValidValuesType="Matrix">9N $P1+6C 7F; 9N $P1+6C 3F</MsgData>
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">9N $P1+50 7F; 9N $P1+50 3F</MsgData>
+      <MsgData MsgType="MuteLR" ValidValuesType="LR">9N 67 7F; 9N 67 3F</MsgData>
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">BN 63 $P1+20 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="StInFader" FaderType="Level" ValidValuesType="StIn" SelectionType="fader+grid">BN 63 $P1+40 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="MasterFader" FaderType="Level" SelectionType="fader">BN 63 67 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="FXSndFader" FaderType="Level" ValidValuesType="FXSnd" SelectionType="fader+grid">BN 63 $P1 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">BN 63 $P1+10 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="MixFader" FaderType="Level" ValidValuesType="Mix" SelectionType="fader+grid">BN 63 $P1+60 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="AudGrpFader" FaderType="Level" ValidValuesType="AudGrp" SelectionType="fader+grid">BN 63 $P1+68 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="Matrix" SelectionType="fader+grid">BN 63 $P1+6C BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="FXRtnFader" FaderType="Level" ValidValuesType="FXRtn" SelectionType="fader+grid">BN 63 $P1+08 BN 62 17 BN 06 $V1 BN 26 07</MsgData>
+      <MsgData MsgType="ChFXFader" FaderType="Level" ValidValuesType="FXSnd" ValidValuesType2="Chan" SelectionType="cbo+fader+grid">BN 63 $P2+20 BN 62 20 BN 06 $V1 BN 26 $P1+10</MsgData>
+      <MsgData MsgType="ChGrpFader" FaderType="Level" ValidValuesType="AudGrp" ValidValuesType2="Chan" SelectionType="cbo+fader+grid">BN 63 $P2+20 BN 62 20 BN 06 $V1 BN 26 $P1+08</MsgData>
+      <MsgData MsgType="ChMixFader" FaderType="Level" ValidValuesType="Mix" ValidValuesType2="Chan" SelectionType="cbo+fader+grid">BN 63 $P2+20 BN 62 20 BN 06 $V1 BN 26 $P1</MsgData>
+      <MsgData MsgType="ChMtxFader" FaderType="Level" ValidValuesType="FXSnd" ValidValuesType2="Chan" SelectionType="cbo+fader+grid">BN 63 $P2+20 BN 62 20 BN 06 $V1 BN 26 $P1+0C</MsgData>
+    </RemDev>
+    
+    <RemDev DevCode="AH_dL" DfltMIDIChan="12">
+      <!-- Thanks to Jörg Dietze for providing the XML for thie device type -->
+      <ValidValues ValType="Scene">Scene(1-128)</ValidValues>
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-128)</ValidValues>
+      <ValidValues ValType="AuxSndFader" ValLangItem="Mono Aux">Ch(1-62)</ValidValues>
+      <ValidValues ValType="StAuxSndFader" ValLangItem="Stereo Aux">Ch(1-31)</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-24)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-16)</ValidValues>
+      <ValidValues ValType="FXSnd">FX(1-16)</ValidValues>
+      <ValidValues ValType="StFXSnd">FX(1-16)</ValidValues>
+      <ValidValues ValType="MtxFader">FX(1-62)</ValidValues>
+      <ValidValues ValType="StMtxFader">FX(1-31)</ValidValues>
+      <ValidValues ValType="AudGrpFader">FX(1-62)</ValidValues>
+      <ValidValues ValType="StAudGrpFader">FX(1-31)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-8)</ValidValues>
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=74,0=6B,-5=61,-10=57,-15=4D,-20=43,-25=39,-30=2F,-35=25,-40=1B,-45=11</FaderData> <!-- AS PUBLISHED -->
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">BN 00 00 BN CN $P1</MsgData>
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">BN 63 $P1+0 BN 62 17 BN 06 $V1</MsgData>
+      <MsgData MsgType="AuxSndFader" FaderType="Level" ValidValuesType="AuxSndFader" SelectionType="fader+grid">BN+2 63 $P1+0 BN+2 62 17 BN+2 06 $V1</MsgData>
+      <MsgData MsgType="StAuxSndFader" FaderType="Level" ValidValuesType="StAuxSndFader" SelectionType="fader+grid">BN+2 63 $P1+40 BN+2 62 17 BN+2 06 $V1</MsgData>
+      <MsgData MsgType="FXSndFader" FaderType="Level" ValidValuesType="FXSnd" SelectionType="fader+grid">BN+4 63 $P1+0 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="StFXSndFader" FaderType="Level" ValidValuesType="StFXSnd" SelectionType="fader+grid">BN+4 63 $P1+10 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">BN+4 63 $P1+36 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="FXRtnFader" FaderType="Level" ValidValuesType="FXRtn" SelectionType="fader+grid">BN+4 63 $P1+20 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="MtxFader" SelectionType="fader+grid">BN+3 63 $P1+0 BN+3 62 17 BN+3 06 $V1</MsgData>
+      <MsgData MsgType="StMtxFader" FaderType="Level" ValidValuesType="StMtxFader" SelectionType="fader+grid">BN+3 63 $P1+40 BN+3 62 17 B+3 06 $V1</MsgData>
+      <MsgData MsgType="AudGrpFader" FaderType="Level" ValidValuesType="MtxFader" SelectionType="fader+grid">BN+1 63 $P1+0 BN+1 62 17 BN+1 06 $V1</MsgData>
+      <MsgData MsgType="StAudGrpFader" FaderType="Level" ValidValuesType="StMtxFader" SelectionType="fader+grid">BN+1 63 $P1+40 BN+1 62 17 B+1 06 $V1</MsgData>
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">9N+4 $P1+4E 7F 9N+4 $P1+4E 00; 9N+4 $P1+4E 3F 9N+4 $P1+4E 00</MsgData>
+      </RemDev>
+
+    <RemDev DevCode="AH_AV" DfltMIDIChan="12">
+      <!-- Thanks to Jörg Dietze for providing the XML for this device type -->
+      <ValidValues ValType="Scene">Scene(1-128)</ValidValues>
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-64)</ValidValues>
+      <ValidValues ValType="AuxSndFader" ValLangItem="Mono Aux">Ch(1-40)</ValidValues>
+      <ValidValues ValType="StAuxSndFader" ValLangItem="Stereo Aux">Ch(1-20)</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-16)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-12)</ValidValues>
+      <ValidValues ValType="FXSnd">FX(1-12)</ValidValues>
+      <ValidValues ValType="StFXSnd">FX(1-12)</ValidValues>      
+      <ValidValues ValType="MtxFader">FX(1-40)</ValidValues>
+      <ValidValues ValType="StMtxFader">FX(1-20)</ValidValues>
+      <ValidValues ValType="AudGrpFader">FX(1-40)</ValidValues>
+      <ValidValues ValType="StAudGrpFader">FX(1-20)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-8)</ValidValues>
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=74,0=6B,-5=61,-10=57,-15=4D,-20=43,-25=39,-30=2F,-35=25,-40=1B,-45=11</FaderData> <!-- AS PUBLISHED -->
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">BN 00 00 BN CN $P1</MsgData>
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">BN 63 $P1+0 BN 62 17 BN 06 $V1</MsgData>
+      <MsgData MsgType="AuxSndFader" FaderType="Level" ValidValuesType="AuxSndFader" SelectionType="fader+grid">BN+2 63 $P1+0 BN+2 62 17 BN+2 06 $V1</MsgData>
+      <MsgData MsgType="StAuxSndFader" FaderType="Level" ValidValuesType="StAuxSndFader" SelectionType="fader+grid">BN+2 63 $P1+40 BN+2 62 17 BN+2 06 $V1</MsgData>
+      <MsgData MsgType="FXSndFader" FaderType="Level" ValidValuesType="FXSnd" SelectionType="fader+grid">BN+4 63 $P1+0 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="StFXSndFader" FaderType="Level" ValidValuesType="StFXSnd" SelectionType="fader+grid">BN+4 63 $P1+10 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">BN+4 63 $P1+36 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="FXRtnFader" FaderType="Level" ValidValuesType="FXRtn" SelectionType="fader+grid">BN+4 63 $P1+20 BN+4 62 17 BN+4 06 $V1</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="MtxFader" SelectionType="fader+grid">BN+3 63 $P1+0 BN+3 62 17 BN+3 06 $V1</MsgData>
+      <MsgData MsgType="StMtxFader" FaderType="Level" ValidValuesType="StMtxFader" SelectionType="fader+grid">BN+3 63 $P1+40 BN+3 62 17 B+3 06 $V1</MsgData>
+      <MsgData MsgType="AudGrpFader" FaderType="Level" ValidValuesType="MtxFader" SelectionType="fader+grid">BN+1 63 $P1+0 BN+1 62 17 BN+1 06 $V1</MsgData>
+      <MsgData MsgType="StAudGrpFader" FaderType="Level" ValidValuesType="StMtxFader" SelectionType="fader+grid">BN+1 63 $P1+40 BN+1 62 17 B+1 06 $V1</MsgData>
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">9N+4 $P1+46 7F 9N+4 $P1+46 00; 9N+4 $P1+46 3F 9N+4 $P1+46 00</MsgData>
+      </RemDev>
+    
+    <RemDev DevCode="AH_SQ" DfltMIDIChan="1">
+      <ValidValues ValType="Scene">Scene(1-300)</ValidValues>
+      <ValidValues ValType="AudGrp" ValLangItem="Group">Grp(1-12)</ValidValues>
+      <ValidValues ValType="AuxSnd">AuxSnd(1-12)</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-8)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-8)</ValidValues>
+      <ValidValues ValType="FXSnd">FX(1-4)</ValidValues>
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-48)</ValidValues>
+      <ValidValues ValType="StIn">ST1L,ST1R,ST2L,ST2R,ST3L,ST3R</ValidValues> <!-- equivalent to input channels 41-46 -->
+      <ValidValues ValType="USBIn">USBL,USBR</ValidValues>                    <!-- equivalent to input channels 47-48 -->
+      <ValidValues ValType="LR">LR</ValidValues>
+      <ValidValues ValType="Matrix" ValLangItem="Mtx">Mtx(1-3)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-4)</ValidValues>
+      <!-- <FaderData FdrType="Level" FdrLangItem="LeveldB" FdrBytes="2">+10=7F.40,+5=73.40,0=62,-5=4E.40,-10=3E,-15=36,-20=2E.40,-25=26.40,-30=1F,-35=17,-40=0F.40,-45=0C,-50=08,-60=06,-70=04,-80=02.40</FaderData> --> <!-- audio taper (VC.VF -->
+      <FaderData FdrType="Level" FdrLangItem="LeveldB" FdrBytes="2">+10=7F.40,+9=7D,+8=7A.40,+7=78.00,+6=75.40,+5=73.40,+4=70,+3=6C.40,+2=69,+1=65.40, 0=62,-1=5E,-2=5A,-3=56.40,-4=52.40,-5=4E.40,-6=4B,-7=48,-8=44.40,-9=41.40, -10=3E,-11=3C.40,-12=3B,-13=39.40,-14=38,-15=36,-16=34.30,-17=33,-18=31.40,-19=30, -20=2E.40,-21=2D,-22=2B.40,-23=2A,-24=28.40,-25=26.40,-26=25,-27=23.40,-28=22,-29=20.40, -30=1F,-31=1D.40,-32=1C,-33=1A.40,-34=19,-35=17,-36=15.40,-38=12.40, -40=0F.40,-45=0C,-50=08,-55=07,-60=06,-65=05,-70=04,-75=03.40,-80=02.40,-85=02,-90=01.40</FaderData> <!-- audio taper (VC.VF [Changed last entry from -89 to -90 to force a 'major' tick mark point] -->
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">BN 00 $P1/80 C0 $P1%80</MsgData>
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan">BN 63 00 BN 62 $P1 BN 06 00 BN 26 01; BN 63 00 BN 62 $P1 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteDCA" ValidValuesType="DCA">BN 63 02 BN 62 $P1 BN 06 00 BN 26 01; BN 63 02 BN 62 $P1 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteFXRtn" ValidValuesType="FXRtn">BN 63 00 BN 62 $P1+3C BN 06 00 BN 26 01; BN 63 00 BN 62 $P1+3C BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteFXSnd" ValidValuesType="FXSnd">BN 63 00 BN 62 $P1+51 BN 06 00 BN 26 01; BN 63 00 BN 62 $P1+51 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteAudGrp" ValidValuesType="AudGrp">BN 63 00 BN 62 $P1+30 BN 06 00 BN 26 01; BN 63 00 BN 62 $P1+30 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteMtx" ValidValuesType="Matrix">BN 63 00 BN 62 $P1+55 BN 06 00 BN 26 01; BN 63 00 BN 62 $P1+55 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">BN 63 04 BN 62 $P1 BN 06 00 BN 26 01; BN 63 04 BN 62 $P1 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteLR" ValidValuesType="LR">BN 63 00 BN 62 44 BN 06 00 BN 26 01; BN 63 00 BN 62 44 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="MuteAuxSnd" MsgLangItem="MuteAuxSnd" ValidValuesType="AuxSnd">BN 63 00 BN 62 $P1+45 BN 06 00 BN 26 01; BN 63 00 BN 62 $P1+45 BN 06 00 BN 26 00</MsgData>
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">BN 63 40 BN 62 $P1 BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="StInFader" FaderType="Level" ValidValuesType="StIn" SelectionType="fader+grid">BN 63 40 BN 62 $P1+28 BN 06 $V1 BN 26 $V2</MsgData> <!--28 hex = 40 decimal -->
+      <MsgData MsgType="USBInFader" FaderType="Level" ValidValuesType="USBIn" SelectionType="fader+grid">BN 63 40 BN 62 $P1+2E BN 06 $V1 BN 26 $V2</MsgData> <!--2E hex = 46 decimal -->
+      <MsgData MsgType="MasterFader" FaderType="Level" SelectionType="fader">BN 63 4F BN 62 00 BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">BN 63 4F BN 62 $P1+20 BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="AuxSndFader" FaderType="Level" ValidValuesType="AuxSnd" SelectionType="fader+grid">BN 63 4F BN 62 $P1+01 BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="FXSndFader" FaderType="Level" ValidValuesType="FXSnd" SelectionType="fader+grid">BN 63 4F BN 62 $P1+0D BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="Matrix" SelectionType="fader+grid">BN 63 4F BN 62 $P1+11 BN 06 $V1 BN 26 $V2</MsgData>
+      <MsgData MsgType="ChFXFader" FaderType="Level" ValidValuesType="FXSnd" ValidValuesType2="Chan" SelectionType="cbo+fader+grid">BN 63 4C BN 62 $P2*4+$P1+14 BN 06 $V1 BN 26 $V2</MsgData>
+    </RemDev>
+    
+    <RemDev DevCode="BR_XAIR" DfltMIDIChan="0"> <!-- no default MIDI channel required -->
+      <ValidValues ValType="Snapshot">Snapshot(1-64)</ValidValues>
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-16)</ValidValues>
+      <ValidValues ValType="AuxIn">AuxIn</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-4)</ValidValues>
+      <ValidValues ValType="AuxSnd">AuxSnd(1-6)</ValidValues>
+      <ValidValues ValType="FXSnd">FXSnd(1-4)</ValidValues>
+      <ValidValues ValType="LR">LR</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-4)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-4)</ValidValues>
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=70,0=60,-5=50,-10=40,-15=38,-20=30,-25=28,-30=20,-40=18,-50=10,-60=08,-75=04,-90=00</FaderData>
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Snapshot" MsgLangItem="RecallSnapshot" ValidValuesType="Snapshot" SelectionType="cbo">C0 P1+1</MsgData> <!-- 1-64 -->
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan">B1 $P1 7F; B1 $P1 00</MsgData> <!-- 0-15 -->
+      <MsgData MsgType="MuteAuxIn" ValidValuesType="AuxIn">B1 10 7F; B1 10 00</MsgData> <!-- 16 -->
+      <MsgData MsgType="MuteFXRtn" ValidValuesType="FXRtn">B1 $P1+11 7F; B1 $P1+11 00</MsgData> <!-- 17-20 -->
+      <MsgData MsgType="MuteAuxSnd" ValidValuesType="AuxSnd">B1 $P1+15 7F; B1 $P1+15 00</MsgData> <!-- 21-26 -->
+      <MsgData MsgType="MuteFXSnd" ValidValuesType="FXSnd">B1 $P1+1B 7F; B1 $P1+1B 00</MsgData> <!-- 27-30 -->
+      <MsgData MsgType="MuteLR" ValidValuesType="LR">B1 1F 7F; B1 1F 00</MsgData> <!-- 31 -->
+      <MsgData MsgType="MuteDCA" ValidValuesType="DCA">B1 $P1+20 7F; B1 $P1+20 00</MsgData> <!-- 32-35 -->
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">B1 $P1+24 7F; B1 $P1+24 00</MsgData> <!-- 36-39 -->
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">B0 $P1 $V1</MsgData>
+      <MsgData MsgType="MasterFader" FaderType="Level" SelectionType="fader">B0 1F $V1</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">B0 $P1+20 $V1</MsgData>
+      <MsgData MsgType="AuxSndFader" FaderType="Level" ValidValuesType="AuxSnd" SelectionType="fader+grid">B0 $P1+15 $V1</MsgData>
+      <MsgData MsgType="FXSndFader" FaderType="Level" ValidValuesType="FXSnd" SelectionType="fader+grid">B0 $P1+1B $V1</MsgData>
+    </RemDev>
+    
+    <RemDev DevCode="BR_X32" DevLangItem="BR_X32" DfltMIDIChan="0"> <!-- no default MIDI channel required -->
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-32)</ValidValues>
+      <ValidValues ValType="Scene" ValBase="0">Scene(0-99)</ValidValues>
+      <ValidValues ValType="Snippet" ValBase="0">Snippet(0-99)</ValidValues>
+      <ValidValues ValType="Cue0xx" ValLangItem="Cue">Cue(0-99)</ValidValues>
+      <ValidValues ValType="Cue1xx" ValLangItem="Cue">Cue(100-199)</ValidValues>
+      <ValidValues ValType="Cue2xx" ValLangItem="Cue">Cue(200-299)</ValidValues>
+      <ValidValues ValType="Cue3xx" ValLangItem="Cue">Cue(300-399)</ValidValues>
+      <ValidValues ValType="Cue4xx" ValLangItem="Cue">Cue(400-499)</ValidValues>
+      <ValidValues ValType="AuxIn">AuxIn(1-6)</ValidValues>
+      <ValidValues ValType="USBIn">USBIn(1-2)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-8)</ValidValues>
+      <ValidValues ValType="Bus">Bus(1-16)</ValidValues>
+      <ValidValues ValType="Matrix" ValLangItem="Mtx">Matrix(1-6)</ValidValues>
+      <ValidValues ValType="LR">LR</ValidValues>
+      <ValidValues ValType="MC">M/C</ValidValues> <!-- M/C = Mono/Center -->
+      <ValidValues ValType="DCA">DCA(1-8)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-6)</ValidValues>
+      <ValidValues ValType="X32Color" ValLangItem="Color">Off,Red,Green,Yellow,Blue,Magenta,Cyan,White,Inverted Off,Inverted Red,Inverted Green,Inverted Yellow,Inverted Blue,Inverted Magenta,Inverted Cyan,Inverted White|OFF,RD,GN,YE,BL,MG,CY,WH,OFFi,RDi,GNi,YEi,BLi,MGi,CYi,WHi</ValidValues>
+      <!-- <ValidValues ValType="X32Color" ValLangItem="Color">Color(0-15)</ValidValues> -->
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=70,0=60,-5=50,-10=40,-15=38,-20=30,-25=28,-30=20,-40=18,-50=10,-60=08,-75=04,-90=00</FaderData>
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" MsgLangItem="GoScene" ValidValuesType="Scene" SelectionType="cbo">C0 $P1</MsgData> <!-- 0-99 -->
+      <MsgData MsgType="Snippet" MsgLangItem="GoSnippet" ValidValuesType="Snippet" SelectionType="cbo">C1 $P1</MsgData> <!-- 0-99 -->
+      <MsgData MsgType="Cue0xx" MsgLangItem="GoCue0xx" ValidValuesType="Cue0xx" SelectionType="cbo">$P1+1#1</MsgData> <!-- 1-99 -->
+      <MsgData MsgType="Cue1xx" MsgLangItem="GoCue1xx" ValidValuesType="Cue1xx" SelectionType="cbo">$P1+64#1</MsgData> <!-- 100-199 -->
+      <MsgData MsgType="Cue2xx" MsgLangItem="GoCue2xx" ValidValuesType="Cue2xx" SelectionType="cbo">$P1+C8#1</MsgData> <!-- 200-299 -->
+      <MsgData MsgType="Cue3xx" MsgLangItem="GoCue3xx" ValidValuesType="Cue3xx" SelectionType="cbo">$P1+12C#1</MsgData> <!-- 300-399 -->
+      <MsgData MsgType="Cue4xx" MsgLangItem="GoCue4xx" ValidValuesType="Cue4xx" SelectionType="cbo">$P1+190#1</MsgData> <!-- 400-500 -->
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan">B1 $P1 7F; B1 $P1 00</MsgData> <!-- 0-31 -->
+      <MsgData MsgType="MuteAuxIn" ValidValuesType="AuxIn">B1 $P1+20 7F; B1 $P1+20 00</MsgData> <!-- 32-37 -->
+      <MsgData MsgType="MuteUSBIn" ValidValuesType="USBIn">B1 $P1+26 7F; B1 $P1+26 00</MsgData> <!-- 38-39 -->
+      <MsgData MsgType="MuteFXRtn" ValidValuesType="FXRtn">B1 $P1+28 7F; B1 $P1+28 00</MsgData> <!-- 40-47 -->
+      <MsgData MsgType="MuteBus" ValidValuesType="Bus">B1 $P1+30 7F; B1 $P1+30 00</MsgData> <!-- 48-63 -->
+      <MsgData MsgType="MuteMtx" ValidValuesType="Matrix">B1 $P1+40 7F; B1 $P1+40 00</MsgData> <!-- 64-69 -->
+      <MsgData MsgType="MuteLR" ValidValuesType="LR">B1 46 7F; B1 46 00</MsgData> <!-- 70 -->
+      <MsgData MsgType="MuteMC" ValidValuesType="MC">B1 47 7F; B1 47 00</MsgData> <!-- 71 -->
+      <MsgData MsgType="MuteDCA" ValidValuesType="DCA">B1 $P1+48 7F; B1 $P1+48 00</MsgData> <!-- 72-79 -->
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">B1 $P1+50 00; B1 $P1+50 7F</MsgData> <!-- 80-85 --> <!-- values reversed for mute groups -->
+      <!-- <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp">B1 $P1+50 7F; B1 $P1+50 00</MsgData> --> <!-- 80-85 -->
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">B0 $P1 $V1</MsgData>
+      <MsgData MsgType="AuxInFader" FaderType="Level" ValidValuesType="AuxIn" SelectionType="fader+grid">B0 $P1+20 $V1</MsgData>
+      <MsgData MsgType="USBInFader" FaderType="Level" ValidValuesType="USBIn" SelectionType="fader+grid">B0 $P1+26 $V1</MsgData>
+      <MsgData MsgType="FXRtnFader" FaderType="Level" ValidValuesType="FXRtn" SelectionType="fader+grid">B0 $P1+28 $V1</MsgData>
+      <MsgData MsgType="BusFader" FaderType="Level" ValidValuesType="Bus" SelectionType="fader+grid">B0 $P1+30 $V1</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="Matrix" SelectionType="fader+grid">B0 $P1+40 $V1</MsgData>
+      <MsgData MsgType="LRFader" FaderType="Level" SelectionType="fader">B0 46 $V1</MsgData>
+      <MsgData MsgType="MCFader" FaderType="Level" SelectionType="fader">B0 47 $V1</MsgData>
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">B0 $P1+48 $V1</MsgData>
+      <MsgData MsgType="ChColor" ValidValuesType="X32Color" ValidValuesType2="Chan" SelectionType="cbo+grid">F0 00 20 32 32 "/ch/"$S2.2"/config/color "$S1 F7</MsgData> <!-- $S1 is the cbo color selection, and $S2.2 is a grid channel selection, to be encoded as a 2-digit number (eg 01) -->
+      <MsgData MsgType="DCAColor" ValidValuesType="X32Color" ValidValuesType2="DCA" SelectionType="cbo+grid">F0 00 20 32 32 "/dca/"$S2"/config/color "$S1 F7</MsgData> <!-- $S1 is the cbo color selection, and $S2 is a grid DCA selection -->
+    </RemDev>
+
+    <RemDev DevCode="BR_WING" DfltMIDIChan="0"> <!-- no default MIDI channel required -->
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-40)</ValidValues>
+      <ValidValues ValType="AuxIn">AuxIn(1-8)</ValidValues>
+      <ValidValues ValType="Bus">Bus(1-16)</ValidValues>
+      <ValidValues ValType="Matrix" ValLangItem="Mtx">Matrix(1-8)</ValidValues>
+      <ValidValues ValType="DCA">DCA(1-16)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-8)</ValidValues>
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=70,0=60,-5=50,-10=40,-15=38,-20=30,-25=28,-30=20,-40=18,-50=10,-60=08,-75=04,-90=00</FaderData>
+      <!-- Channel Mapping: MUTE on MIDI CH2 -->
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan" SkipParamValues="32-43">B1 $P1+0C 7F; B1 $P1+0C 00</MsgData> <!-- 12-31 and 44-63 -->
+      <MsgData MsgType="MuteAuxIn" ValidValuesType="AuxIn">B1 $P1+46 7F; B1 $P1+46 00</MsgData> <!-- 70-77 -->
+      <MsgData MsgType="MuteBus" ValidValuesType="Bus">B1 $P1+4E 7F; B1 $P1+4E 00</MsgData> <!-- 78-93 -->
+      <MsgData MsgType="MuteMtx" ValidValuesType="Matrix">B1 $P1+68 7F; B1 $P1+68 00</MsgData> <!-- 104-111 -->
+      <!-- DCA/Mute Groups: MUTE on MIDI CH5 -->
+      <MsgData MsgType="MuteDCA" ValidValuesType="DCA">B4 $P1+0C 7F; B4 $P1+0C 00</MsgData> <!-- 12-27 -->
+      <MsgData MsgType="MuteMuteGrp" ValidValuesType="MuteGrp" SkipParamValues="32-43">B4 $P1+1C 00; B4 $P1+1C 7F</MsgData> <!-- 28-31 and 44-47 --> <!-- values reversed for mute groups -->
+      <!-- Channel Mapping: FADER on MIDI CH1 -->
+      <MsgData MsgType="ChFader" FaderType="Level" ValidValuesType="Chan" SkipParamValues="32-43" SelectionType="fader+grid">B0 $P1+0C $V1</MsgData>
+      <MsgData MsgType="AuxInFader" FaderType="Level" ValidValuesType="AuxIn" SelectionType="fader+grid">B0 $P1+46 $V1</MsgData>
+      <MsgData MsgType="BusFader" FaderType="Level" ValidValuesType="Bus" SelectionType="fader+grid">B0 $P1+4E $V1</MsgData>
+      <MsgData MsgType="MtxFader" FaderType="Level" ValidValuesType="Matrix" SelectionType="fader+grid">B0 $P1+68 $V1</MsgData>
+      <!-- DCA/Mute Groups: FADER on MIDI CH4 -->
+      <MsgData MsgType="DCAFader" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">B3 $P1+0C $V1</MsgData>
+    </RemDev>
+
+    <RemDev DevCode="YAM_LS" DfltMIDIChan="1">
+      <ValidValues ValType="Chan" ValLangItem="Channel">CH(1-64)</ValidValues>
+      <!-- <ValidValues ValType="StIn" ValLangItem="StIn">ST1L,ST1R,ST2L,ST2R,ST3L,ST3R</ValidValues> -->
+      <ValidValues ValType="StIn" ValLangItem="StIn">ST1,ST2,ST3,ST4</ValidValues>
+      <ValidValues ValType="Scene">Scene(1-100)</ValidValues>
+      <ValidValues ValType="Mix">Mix(1-16)</ValidValues>
+      <ValidValues ValType="Stereo">Stereo</ValidValues>
+      <FaderData FdrType="Level2" FdrLangItem="LeveldB" FdrBytes="2" FdrValFormat="D1">+10=1023,+9=1003,+8=983,+7=963,+6=943,+5=923,+4=903,+3=883,+2=863,+1=843, 0=823,-1=803,-2=783,-3=763,-4=743,-5=723,-6=703,-7=683,-8=663,-9=643, -10=623,-11=603,-12=583,-13=563,-14=543,-15=523,-16=503,-17=483,-18=463,-19=443, -20=423,-21=413,-22=403,-23=393,-24=383,-25=373,-26=363,-27=353,-28=343,-29=333, -30=323,-31=313,-32=303,-33=293,-34=283,-35=273,-36=263,-38=243, -40=223,-45=198,-50=173,-55=148,-60=123,-65=98,-70=73,-75=48,-80=31,-85=26,-90=21</FaderData>
+      <FaderData FdrType="LevelHL" FdrLangItem="LeveldB" FdrBytes="2" FdrValFormat="D2">+10=127.112,+9=125.48,+8=122.112,+7=120.48,+6=117.112,+5=115.48,+4=112.112,+3=110.48,+2=107.112,+1=105.48, 0=102.112,-1=100.48,-2=97.112,-3=95.48,-4=92.112,-5=90.48,-6=87.112,-7=85.48,-8=82.112,-9=80.48, -10=77.112,-11=75.48,-12=72.112,-13=70.48,-14=67.112,-15=65.48,-16=62.112,-17=60.48,-18=57.112,-19=55.48, -20=52.112,-21=51.80,-22=50.48,-23=49.16,-24=47.112,-25=46.80,-26=45.48,-27=44.16,-28=42.112,-29=41.80, -30=40.48,-31=39.16,-32=37.112,-33=36.80,-34=35.48,-35=34.16,-36=32.112,-38=30.48, -40=27.112,-45=24.96,-50=21.80,-55=18.64,-60=15.48,-65=12.32,-70=9.16,-75=6.0,-80=3.112,-85=3.32,-90=2.80</FaderData>
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">F0 43 1N 3E 12 00 4C 69 62 52 63 6C 5F 5F 53 43 45 4E 45 5F 5F 5F 00 P1+1 04 00 F7</MsgData> <!-- nb includes "LibRcl__SCENE___" -->
+      <MsgData MsgType="MuteCh" ValidValuesType="Chan">F0 43 1N 3E 12 01 00 31 00 00 00 $P1 00 00 00 00 00 F7; F0 43 1N 3E 12 01 00 31 00 00 00 $P1 00 00 00 00 01 F7</MsgData>
+      <MsgData MsgType="MuteStIn" ValidValuesType="StIn">F0 43 1N 3E 12 01 00 31 00 00 00 $P1+01+40 00 00 00 00 00 F7; F0 43 1N 3E 12 01 00 31 00 00 00 $P1+01+40 00 00 00 00 01 F7</MsgData>
+      <MsgData MsgType="MuteMix" ValidValuesType="Mix">F0 43 1N 3E 12 01 00 4C 00 00 00 $P1 00 00 00 00 00 F7; F0 43 1N 3E 12 01 00 4C 00 00 00 $P1 00 00 00 00 01 F7</MsgData>
+      <MsgData MsgType="MuteStereo" ValidValuesType="Stereo">F0 43 1N 3E 12 01 00 6B 00 00 00 00 00 00 00 00 00 F7; F0 43 1N 3E 12 01 00 6B 00 00 00 00 00 00 00 00 01 F7</MsgData>
+      <MsgData MsgType="ChFader" FaderType="Level2" ValidValuesType="Chan" SelectionType="fader+grid">F0 43 1N 3E 12 01 00 33 00 00 00 $P1 00 00 00 $V1 $V2 F7</MsgData>
+      <MsgData MsgType="StInFader" FaderType="Level2" ValidValuesType="StIn" SelectionType="fader+grid">F0 43 1N 3E 12 01 00 33 00 00 00 $P1*2+40 00 00 00 $V1 $V2 F7</MsgData>
+      <MsgData MsgType="MixFader" FaderType="Level2" ValidValuesType="Mix" SelectionType="fader+grid">F0 43 1N 3E 12 01 00 4E 00 00 00 $P1 00 00 00 $V1 $V2 F7</MsgData>
+      <MsgData MsgType="StereoMaster" FaderType="Level2" SelectionType="fader">F0 43 1N 3E 12 01 00 6D 00 00 00 00 00 00 00 $V1 $V2 F7</MsgData>
+    </RemDev>
+
+<!--
+    <RemDev DevCode="YAM_M7CL" DfltMIDIChan="1">
+      <ValidValues ValType="Scene" ValBase="0">Scene(0-100)</ValidValues>
+      <MsgData MsgType="Scene" MsgLangItem="RecallScene" ValidValuesType="Scene" SelectionType="cbo">CN P1+1</MsgData>
+    </RemDev>
+-->
+
+    <RemDev DevCode="AurusPlat" DfltMIDIChan="0"> <!-- no default MIDI channel required -->
+      <ValidValues ValType="Scene">Scene(1-100)</ValidValues>
+      <ValidValues ValType="NextScene" ValLangItem="Scene">Next Scene</ValidValues>
+      <ValidValues ValType="Snapshot">Snapshot(1-100)</ValidValues>
+      <ValidValues ValType="NextSnapshot" ValLangItem="Snapshot">Next Snapshot</ValidValues>
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" MsgLangItem="GoScene" ValidValuesType="Scene" SelectionType="cbo">F0 7F 00 02 10 01 $h+30 $t+30 $U+30 00 31 F7</MsgData> <!-- MSC Q-Number = scene number, Q-List = 1 for scene -->
+      <MsgData MsgType="NextScene" MsgLangItem="GoNextScene" ValidValuesType="NextScene">F0 7F 00 02 10 01 30 00 31 F7</MsgData> <!-- MSC Q-Number = 0 for 'next', Q-List = 1 for scene -->
+      <MsgData MsgType="Snapshot" MsgLangItem="GoSnapshot" ValidValuesType="Snapshot" SelectionType="cbo">F0 7F 00 02 10 01 $h+30 $t+30 $U+30 00 32 F7</MsgData> <!-- MSC Q-Number = snapshot number, or 0 for 'next', Q-List = 2 for snapshot -->
+      <MsgData MsgType="NextSnapshot" MsgLangItem="GoNextSnapshot" ValidValuesType="NextSnapshot">F0 7F 00 02 10 01 30 00 32 F7</MsgData> <!-- MSC Q-Number = 0 for 'next', Q-List = 2 for snapshot -->
+    </RemDev>
+
+  </DevType>
+  <DevType DevType="Network">
+    <RemDev DevCode="OSC-X32" DevLangItem="NW_X32">
+      <ValidValues ValType="Chan" ValLangItem="Channel">Ch(1-32)</ValidValues>
+      <ValidValues ValType="Scene" ValBase="0">Scene(0-99)</ValidValues>
+      <ValidValues ValType="Snippet" ValBase="0">Snippet(0-99)</ValidValues>
+      <ValidValues ValType="Cue0xx" ValBase="0" ValLangItem="Cue">Cue(0-99)</ValidValues>
+      <ValidValues ValType="Cue1xx" ValBase="100" ValLangItem="Cue">Cue(100-199)</ValidValues>
+      <ValidValues ValType="Cue2xx" ValBase="200" ValLangItem="Cue">Cue(200-299)</ValidValues>
+      <ValidValues ValType="Cue3xx" ValBase="300" ValLangItem="Cue">Cue(300-399)</ValidValues>
+      <ValidValues ValType="Cue4xx" ValBase="400" ValLangItem="Cue">Cue(400-499)</ValidValues>
+      <ValidValues ValType="AuxIn">AuxIn(1-8)</ValidValues>
+      <ValidValues ValType="USBIn">USBIn(1-2)</ValidValues>
+      <ValidValues ValType="FXRtn">FXRtn(1-8)</ValidValues>
+      <ValidValues ValType="Bus">Bus(1-16)</ValidValues>
+      <ValidValues ValType="Matrix" ValLangItem="Mtx">Matrix(1-6)</ValidValues>
+      <ValidValues ValType="LR">LR</ValidValues>
+      <ValidValues ValType="MC">M/C</ValidValues> <!-- M/C = Mono/Center -->
+      <ValidValues ValType="DCA">DCA(1-8)</ValidValues>
+      <ValidValues ValType="MuteGrp">Mute(1-6)</ValidValues>
+      <ValidValues ValType="X32Color" ValLangItem="Color">Off,Red,Green,Yellow,Blue,Magenta,Cyan,White,Inverted Off,Inverted Red,Inverted Green,Inverted Yellow,Inverted Blue,Inverted Magenta,Inverted Cyan,Inverted White|OFF,RD,GN,YE,BL,MG,CY,WH,OFFi,RDi,GNi,YEi,BLi,MGi,CYi,WHi</ValidValues>
+      <!-- <ValidValues ValType="X32Color" ValLangItem="Color">Color(0-15)</ValidValues> -->
+      <FaderData FdrType="Level" FdrLangItem="LeveldB">+10=7F,+5=70,0=60,-5=50,-10=40,-15=38,-20=30,-25=28,-30=20,-40=18,-50=10,-60=08,-75=04,-90=00</FaderData>
+      <!-- MsgTypes (eg "MuteCh" are saved in users' cue files (in <RemDevMsgType>), so do not delete or change existing MsgTypes -->
+      <MsgData MsgType="Scene" OSCCmdType="goscene" MsgLangItem="GoScene" ValidValuesType="Scene" SelectionType="cbo">/-action/goscene ,i $P1+1</MsgData>
+      <MsgData MsgType="Snippet" OSCCmdType="gosnippet" MsgLangItem="GoSnippet" ValidValuesType="Snippet" SelectionType="cbo">/-action/gosnippet ,i $P1+1</MsgData>
+      <MsgData MsgType="Cue0xx" OSCCmdType="gocue" MsgLangItem="GoCue0xx" ValidValuesType="Cue0xx" SelectionType="cbo">$P1#1</MsgData>    <!-- 0-99 -->
+      <MsgData MsgType="Cue1xx" OSCCmdType="gocue" MsgLangItem="GoCue1xx" ValidValuesType="Cue1xx" SelectionType="cbo">$P1+64#1</MsgData> <!-- 100-199 -->
+      <MsgData MsgType="Cue2xx" OSCCmdType="gocue" MsgLangItem="GoCue2xx" ValidValuesType="Cue2xx" SelectionType="cbo">$P1+C8#1</MsgData> <!-- 200-299 -->
+      <MsgData MsgType="Cue3xx" OSCCmdType="gocue" MsgLangItem="GoCue3xx" ValidValuesType="Cue3xx" SelectionType="cbo">$P1+12C#1</MsgData> <!-- 300-399 -->
+      <MsgData MsgType="Cue4xx" OSCCmdType="gocue" MsgLangItem="GoCue4xx" ValidValuesType="Cue4xx" SelectionType="cbo">$P1+190#1</MsgData> <!-- 400-499 -->
+      <MsgData MsgType="MuteCh" OSCCmdType="mutechannel" ValidValuesType="Chan">/ch/P1+1/mix/on ,i 0; /ch/$P1+1/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteDCA" OSCCmdType="mutedcagroup" ValidValuesType="DCA">/dca/P1+1/on ,i 0; /dca/$P1+1/on ,i 1</MsgData>
+      <MsgData MsgType="MuteAuxIn" OSCCmdType="muteauxin" ValidValuesType="AuxIn">/auxin/$P1+1/mix/on ,i 0; /auxin/$P1+1/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteFXRtn" OSCCmdType="mutefxrtn" ValidValuesType="FXRtn">/fxrtn/P1+1/mix/on ,i 0; /fxrtn/$P1+1/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteBus" OSCCmdType="mutebus" ValidValuesType="Bus">/bus/P1+1/mix/on ,i 0; /bus/$P1+1/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteMtx" OSCCmdType="mutematrix" ValidValuesType="Matrix">/mtx/P1+1/mix/on ,i 0; /mtx/$P1+1/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteLR" OSCCmdType="mutemainlr" ValidValuesType="LR">/main/st/mix/on ,i 0; /main/st/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteMC" OSCCmdType="mutemainmc" ValidValuesType="MC">/main/m/mix/on ,i 0; /main/m/mix/on ,i 1</MsgData>
+      <MsgData MsgType="MuteMuteGrp" OSCCmdType="mutemg" ValidValuesType="MuteGrp">/config/mute/$P1+1 ,i 0; /config/mute/$P1+1 ,i 1</MsgData>
+      <!-- For 'ChFader', see 'X32node‐like commands" on p13 of 'Unofficial X32/M32 OSC Remote Protocol' by Patrick Gillies Maillot -->
+      <MsgData MsgType="ChFader" OSCCmdType="faderchannel" FaderType="Level" ValidValuesType="Chan" SelectionType="fader+grid">/ ,s /ch/$P1+1/mix/fader $P2</MsgData>
+      <MsgData MsgType="DCAFader" OSCCmdType="faderdcagroup" FaderType="Level" ValidValuesType="DCA" SelectionType="fader+grid">/ ,s /dca/$P1+1/fader $P2</MsgData>
+      <MsgData MsgType="AuxInFader" OSCCmdType="faderauxin" FaderType="Level" ValidValuesType="AuxIn" SelectionType="fader+grid">/ ,s /auxin/$P1+1/mix/fader $P2</MsgData>
+      <MsgData MsgType="FXRtnFader" OSCCmdType="faderfxrtn" FaderType="Level" ValidValuesType="FXRtn" SelectionType="fader+grid">/ ,s /fxrtn/$P1+1/mix/fader $P2</MsgData>
+      <MsgData MsgType="BusFader" OSCCmdType="faderbus" FaderType="Level" ValidValuesType="Bus" SelectionType="fader+grid">/ ,s /auxin/$P1+1/bus/fader $P2</MsgData>
+      <MsgData MsgType="MtxFader" OSCCmdType="fadermatrix" FaderType="Level" ValidValuesType="Matrix" SelectionType="fader+grid">/ ,s /mtx/$P1+1/mix/fader $P2</MsgData>
+      <MsgData MsgType="LRFader" OSCCmdType="fadermainlr" FaderType="Level" SelectionType="fader">/ ,s /st/$P1+1/mix/fader $P2</MsgData>
+      <MsgData MsgType="MCFader" OSCCmdType="fadermainmc" FaderType="Level" SelectionType="fader">/ ,s /m/$P1+1/mix/fader $P2</MsgData>
+      <!-- TO BE DONE:- -->
+      <MsgData MsgType="ChColor" ValidValuesType="X32Color" ValidValuesType2="Chan" SelectionType="cbo+grid">F0 00 20 32 32 "/ch/"$S2.2"/config/color "$S1 F7</MsgData> <!-- $S1 is the cbo color selection, and $S2.2 is a grid channel selection, to be encoded as a 2-digit number (eg 01) -->
+      <MsgData MsgType="DCAColor" ValidValuesType="X32Color" ValidValuesType2="DCA" SelectionType="cbo+grid">F0 00 20 32 32 "/dca/"$S2"/config/color "$S1 F7</MsgData> <!-- $S1 is the cbo color selection, and $S2 is a grid DCA selection -->
+      <!-- END OF TO BE DONE:- -->
+    </RemDev>
+  </DevType>
+
+</CSRemDevs>

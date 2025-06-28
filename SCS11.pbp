@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 6.04 LTS (Windows - x64)">
+  <section name="config">
+    <options closefiles="1" openmode="0" name="SCS 11"/>
+  </section>
+  <section name="data">
+    <explorer view="" pattern="2"/>
+    <log show="1"/>
+    <lastopen date="2024-09-12 16:29" user="SCS-Mike" host="PRODUCTION"/>
+  </section>
+  <section name="files">
+    <file name="aamain.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="1" panelstate="+"/>
+      <fingerprint md5="9fb9cbb86cedbc5263a65d7d9f83d415"/>
+    </file>
+    <file name="bass.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="2" panelstate="+"/>
+      <fingerprint md5="558edde789d5c65f5e38042ac3963803"/>
+    </file>
+    <file name="BassChanInfo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="3" panelstate="+"/>
+      <fingerprint md5="b2abb8785b65373a4b8338cf0f165721"/>
+    </file>
+    <file name="common.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="4" panelstate="+"/>
+      <fingerprint md5="8d46a4ac95bbe02256ac4dc09af526b8"/>
+    </file>
+    <file name="condev.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="5" panelstate="+"/>
+      <fingerprint md5="f4c6948343322e5e0f1ad33047eeb66f"/>
+    </file>
+    <file name="Constants.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="6" panelstate="+"/>
+      <fingerprint md5="958520ac04166683c05477b392aa55a0"/>
+    </file>
+    <file name="CueCommon.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="7" panelstate="+"/>
+      <fingerprint md5="eb4ceaa73c6448b5b2470415b64d897b"/>
+    </file>
+    <file name="CueEditor.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="8" panelstate="+"/>
+      <fingerprint md5="d65ee00c6f6a4d3dfd508a9bc648208b"/>
+    </file>
+    <file name="fmEditCue.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="9" panelstate="+"/>
+      <fingerprint md5="1acd75d6674a54d27e3c0f41cf00fa86"/>
+    </file>
+    <file name="fmEditModal.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="10" panelstate="+"/>
+      <fingerprint md5="86b5c9ca7360d05ca21ae997dbff1952"/>
+    </file>
+    <file name="fmEditor.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="11" panelstate="+"/>
+      <fingerprint md5="52f042b293af55dc87eccb71b5acb0b5"/>
+    </file>
+    <file name="fmEditProd.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="12" panelstate="+"/>
+      <fingerprint md5="08eca0c6fe4cf77c876147f8a0425a78"/>
+    </file>
+    <file name="fmEditQF.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="13" panelstate="+"/>
+      <fingerprint md5="2af3fc0aa101748bdc93799402563e98"/>
+    </file>
+    <file name="fmMain.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="14" panelstate="+"/>
+      <fingerprint md5="bb8c0ec5cedc2c7aa0e4e117550b4fe1"/>
+    </file>
+    <file name="fmOptions.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="15" panelstate="+"/>
+      <fingerprint md5="0db538a612e9304945f013c694259bd6"/>
+    </file>
+    <file name="gapless.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="16" panelstate="+"/>
+      <fingerprint md5="d0f5af896e2d64cc7a6cd21027091767"/>
+    </file>
+    <file name="Globals.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="17" panelstate="+"/>
+      <fingerprint md5="dcae49ce179719d97e140a7724519a86"/>
+    </file>
+    <file name="Macros.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="18" panelstate="+"/>
+      <fingerprint md5="439f37eb9fd7435100af1944bf400c81"/>
+    </file>
+    <file name="mmedia.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="19" panelstate="+"/>
+      <fingerprint md5="3a5558a0ca139bc8bd9bc611b81c2114"/>
+    </file>
+    <file name="mmedia2.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="20" panelstate="+"/>
+      <fingerprint md5="0512a2a283158d124e784ebd35014ac1"/>
+    </file>
+    <file name="OpenNextCues.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="21" panelstate="+"/>
+      <fingerprint md5="e1948e2ad2a273a041fa612897204a9a"/>
+    </file>
+    <file name="PreWindows.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="22" panelstate="+"/>
+      <fingerprint md5="1d70b8a76299563caba43a7fd83da5ab"/>
+    </file>
+    <file name="sam.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="23" panelstate="+"/>
+      <fingerprint md5="1adf8f2694853256421fa5686cabcd08"/>
+    </file>
+    <file name="scsLangENUS.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="24" panelstate="+"/>
+      <fingerprint md5="8eaaaffde85a101ae817b5da8e185c2d"/>
+    </file>
+    <file name="SelfContained.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="25" panelstate="+"/>
+      <fingerprint md5="4beb14248544b3b90a1dd287f7969011"/>
+    </file>
+    <file name="SliderControl.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="26" panelstate="+"/>
+      <fingerprint md5="799c6d64ac1dd06d75b808e817e5f3e9"/>
+    </file>
+    <file name="StartUp.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="27" panelstate="+"/>
+      <fingerprint md5="36ce79b3e6bfd00a64a66182e09b274c"/>
+    </file>
+    <file name="Structures.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="28" panelstate="+"/>
+      <fingerprint md5="bf8148a6cf92cd71cd6560be7e2171f4"/>
+    </file>
+    <file name="Threads.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="29" panelstate="+"/>
+      <fingerprint md5="0de546843d969058845be5f4b43271cf"/>
+    </file>
+    <file name="TimeCode.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="30" panelstate="+"/>
+      <fingerprint md5="6b27197e02fb4e04f5c90f3aef744bbc"/>
+    </file>
+    <file name="TopLevel.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="31" panelstate="+"/>
+      <fingerprint md5="9c5247a91230d0627a4f654c38bd2620"/>
+    </file>
+    <file name="Tracing.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="32" panelstate="+"/>
+      <fingerprint md5="3cc5b0d922d9eaeba2de27296a05c330"/>
+    </file>
+    <file name="TVG.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="33" panelstate="+"/>
+      <fingerprint md5="70038c3b9a8c8442a7592610b85621a1"/>
+    </file>
+    <file name="WindowEventHandler.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="34" panelstate="+"/>
+      <fingerprint md5="b52abe66d59989c5a4760791ebcbd137"/>
+    </file>
+    <file name="Windows.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="35" panelstate="+"/>
+      <fingerprint md5="b5d811a0b24960656ac620b7577b3b94"/>
+    </file>
+    <file name="CueFileHandler.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="36" panelstate="+"/>
+      <fingerprint md5="2513881d2143664423413076545f9ca7"/>
+    </file>
+    <file name="MIDI.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="37" panelstate="+"/>
+      <fingerprint md5="5e3ae8e21341b2eb9f788eceb427affc"/>
+    </file>
+    <file name="StatusCheck.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="38" panelstate="+"/>
+      <fingerprint md5="4e3302342bc546a4bfcda76a9def8867"/>
+    </file>
+    <file name="DMX.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="39" panelstate="+"/>
+      <fingerprint md5="41b36cc8535149a6a8b7ae471a1329d0"/>
+    </file>
+    <file name="fmEditQK.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="40" panelstate="+"/>
+      <fingerprint md5="948671cbd03480f10ee48c8a3630325c"/>
+    </file>
+    <file name="fmControllers.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" sortindex="41" panelstate="+"/>
+      <fingerprint md5="62c4b2b9ef4eef57c4de60b6ffaea788"/>
+    </file>
+    <file name="EditDevs.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4fce598bf2fe3d9ebe40ee5786452358"/>
+    </file>
+    <file name="fmMultiCueCopyEtc.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5df99d5cfb949bc2aa43cd63a7da3f04"/>
+    </file>
+    <file name="fmRegister.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="bf76421fa770b5a53fb6e741238365a7"/>
+    </file>
+    <file name="fmSplash.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="602031dcccd5753c0eae475d792b6f98"/>
+    </file>
+    <file name="AudFileRequester.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="50bb17e138cddc86359d3670de8de51d"/>
+    </file>
+    <file name="bassasio.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="054135f61396f35465491ee7c9384894"/>
+    </file>
+    <file name="bassenc.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="8cf9186d1cdc3ca6b732af19bb2e292b"/>
+    </file>
+    <file name="BassExtras.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4167d9868dc3471f751e80bb7a45495e"/>
+    </file>
+    <file name="bassmix.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="439bb6935e6d4c35a130f0656cf0b787"/>
+    </file>
+    <file name="bass_fx.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="db7145f19c9e6de004fef1e3d9fe02fe"/>
+    </file>
+    <file name="bass_vst.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="03ec1041b33ea02bc0c2dd5ee419a881"/>
+    </file>
+    <file name="centerMsgRqstr.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5e544f26f51eb284478abd7e7e235969"/>
+    </file>
+    <file name="ColorHandler.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="e6a734504be80aa30740de3170e93b48"/>
+    </file>
+    <file name="CSRD.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="95ae528daab41b459836b14c0e665439"/>
+    </file>
+    <file name="CueListHandler.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f1f6f81653dcc0d62740e94fbd93f3ec"/>
+    </file>
+    <file name="CuePanelControl.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3c90bc55db662bf831f73c4265baacd5"/>
+    </file>
+    <file name="DevMapHandler.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="23145f4ffea75886bb761e2a32beb261"/>
+    </file>
+    <file name="DLLType.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4f298f2550a5e66db3069a028d114e83"/>
+    </file>
+    <file name="ETCImport.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="313362af229ad1af153f0cad5f91856d"/>
+    </file>
+    <file name="fmAbout.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="017895ff5fee27a1147dfe524151980c"/>
+    </file>
+    <file name="fmAGColors.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="658775d8849290b97bdb71196cfaaa2a"/>
+    </file>
+    <file name="fmBulkEdit.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="60f3ac0cd99db53856d6822a87b06c89"/>
+    </file>
+    <file name="fmCheckForUpdates.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="2f0985f67156b3f14d68221dd353565e"/>
+    </file>
+    <file name="fmClock.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="277004653ca5c69383b5dc85739addef"/>
+    </file>
+    <file name="fmCollectFiles.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="c1315a52a4e30b9950c6b5e49081806e"/>
+    </file>
+    <file name="fmColorScheme.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="535aed4d6256f616d5ac36f53c1ebf55"/>
+    </file>
+    <file name="fmCopyProps.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="ecb24e4ba0c9af9511e75cee60a132e1"/>
+    </file>
+    <file name="fmCountdownClock.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3f71d55b48b649dd6ce341c44850c1eb"/>
+    </file>
+    <file name="fmCtrlSetup.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="42528711e6b0fe4301bb9f580e350cfe"/>
+    </file>
+    <file name="fmCurrInfo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="2e5f3ef0045462dbdc2cddf4390b5685"/>
+    </file>
+    <file name="fmDMXDisplay.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f854fbf3917e6b0221285e06aedc73dd"/>
+    </file>
+    <file name="fmDMXTest.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="c5c13fa675d66379a59b0f7682518b77"/>
+    </file>
+    <file name="fmEditQA.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="97f982b856d56380d87d2db3eb1c8263"/>
+    </file>
+    <file name="fmEditQE.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="37101a6900eb93a045700b47dc7fbdba"/>
+    </file>
+    <file name="fmEditQG.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="d82cc00ed49e5069c8d98edac6a2710d"/>
+    </file>
+    <file name="fmEditQI.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="dfaa03d33319f112fd52828e5187e5ff"/>
+    </file>
+    <file name="fmEditQJ.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="8b419dd15f47b3698844171d97800992"/>
+    </file>
+    <file name="fmEditQL.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="2a58745906e66e3654d2a1b6e2447a46"/>
+    </file>
+    <file name="fmEditQM.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="395ab87192cbe38f340bf9234dac0aa1"/>
+    </file>
+    <file name="fmEditQP.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3821d4102b1dff1c255d37691af9d0a8"/>
+    </file>
+    <file name="fmEditQQ.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4c3e32814e63c20bd2c83ae0e9050a28"/>
+    </file>
+    <file name="fmEditQR.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="d01d8d5d3bf622288270da376ef2df7c"/>
+    </file>
+    <file name="fmEditQS.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="68f0eb7354e4e299fbcb3f8a360c2224"/>
+    </file>
+    <file name="fmEditQT.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="d02be7130420291a90ec776b1ee6ff58"/>
+    </file>
+    <file name="fmEditQU.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="a0cb5c954995c6ce80b4466451ffeb54"/>
+    </file>
+    <file name="fmEditSub.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6b10dbea3209188b2513abfbf148e037"/>
+    </file>
+    <file name="fmExport.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4916d811b09a4ce29c74074ff4297dd5"/>
+    </file>
+    <file name="fmFavFiles.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="2d2876abaf7b2edfe64fa1671ccf8aac"/>
+    </file>
+    <file name="fmFavFileSelector.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="096d7b82f0c52f42170b51c08c0d3113"/>
+    </file>
+    <file name="fmFileLocator.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6e6a9e139784a4a74d3a1f31f3a3abc5"/>
+    </file>
+    <file name="fmFileOpener.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6b040ba3fb5e210666b48d5229cc5ceb"/>
+    </file>
+    <file name="fmFileRename.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="e76aa5e0a34a286a2e9bd2c18be49d57"/>
+    </file>
+    <file name="fmFind.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3e389cf8612f84253b6a694499c24da0"/>
+    </file>
+    <file name="fmImport.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="efabe572bfcdddfbd2d9fe746ca5d15f"/>
+    </file>
+    <file name="fmImportCSV.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="bf2ac08afa56c9d1f9a1238d5d6da0f0"/>
+    </file>
+    <file name="fmImportDevs.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="2769e128fd18ec4a6ee18806e7d7063b"/>
+    </file>
+    <file name="fmInfoMsg.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="576dc81b2d46e676ffb81d9b94e0458f"/>
+    </file>
+    <file name="fmInputRequester.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="bfa964d48f259a9de145501ad829c5f3"/>
+    </file>
+    <file name="fmLabelChange.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="260b0790dad9b84d08fa1fc9995d0c29"/>
+    </file>
+    <file name="fmLoadProd.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="ea7666f13005f826616aa66957f1ef0a"/>
+    </file>
+    <file name="fmLockEditor.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6e1d610a9ee9453fe0e4d66df90a1a96"/>
+    </file>
+    <file name="fmMemo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="ebd3ed9964c86ad57b0ce4a6097e4777"/>
+    </file>
+    <file name="fmMidiTest.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5c3d584be21b4ce0cab4a19cc7afbc49"/>
+    </file>
+    <file name="fmMonitor.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f1b524afb744b842002218220ec35b0d"/>
+    </file>
+    <file name="fmMTCDisplay.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5262f27d1d14739c1d9ecf3a2addf945"/>
+    </file>
+    <file name="fmNearEndWarning.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="da3a9bf690359dc91249bb73204e7dda"/>
+    </file>
+    <file name="fmOSCCapture.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="b4566565da0c0f0bdc845ea135beec0a"/>
+    </file>
+    <file name="fmPrintCueList.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="cdee2eab7a48e0d0e302f263f8d74505"/>
+    </file>
+    <file name="fmProdTimer.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="491953534ca2df4374af16a07d05d4d2"/>
+    </file>
+    <file name="fmScribbleStrip.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="311729386e5ca537e9af1f9414638fc8"/>
+    </file>
+    <file name="fmSpecialStart.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4287f674b714e774f992df04b769fc9d"/>
+    </file>
+    <file name="fmTemplates.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="c3bfafbbc5ecacca128aa2a93b426075"/>
+    </file>
+    <file name="fmTimeProfile.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5a78632e446ba2ebb4e31b7fbfc3167f"/>
+    </file>
+    <file name="fmTimerDisplay.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="e690f58a095ceaad7e52a8b8f99fd046"/>
+    </file>
+    <file name="fmVideo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="7e56c13e02a23c365ceb7079ff8c30c3"/>
+    </file>
+    <file name="fmVSTPlugins.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="8ab61f46eb62818a2a76324f057283af"/>
+    </file>
+    <file name="ftd2xx.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f894e7b97fedca72f19daf1022b4047a"/>
+    </file>
+    <file name="GetKnownFolderPath.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="59a3e2e4cf279a7987e803a2e6e77145"/>
+    </file>
+    <file name="Graph2.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="a4dd98a4b18243ddca76ae365868f20c"/>
+    </file>
+    <file name="http.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="ff62a36d542ebfc0959e5e86728bf526"/>
+    </file>
+    <file name="HTTPControl.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="9809cdf414f3593a013ab4fac2b4118b"/>
+    </file>
+    <file name="Images.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="12c077aa6de3e9f4c00a8f1d9520515f"/>
+    </file>
+    <file name="Knob.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="b421e790246f7f54253d9934e6911726"/>
+    </file>
+    <file name="KnownFolders.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="013767c81786f844e73e6355ed3679e9"/>
+    </file>
+    <file name="Lang.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="7ef5fd7b51a6ade704c81f4743ce31b9"/>
+    </file>
+    <file name="LvlEnv.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f2825602f5f7b5a18bebeab9f6ad0521"/>
+    </file>
+    <file name="M2T.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="530cbbb912264e66766b78987e413d32"/>
+    </file>
+    <file name="MediaInfo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f93c7f5d3f04a234176d346a267c497a"/>
+    </file>
+    <file name="MonitorManager.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5839b72fb25bc1ee138ddd3a9f85dd0f"/>
+    </file>
+    <file name="Mouse.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="a3f71989572a690c670c2491e4ab700c"/>
+    </file>
+    <file name="MultiLineTooltip.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="7bcf6ff317fa69e68aaed40dbbeddad9"/>
+    </file>
+    <file name="MyGrid_PB520.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="d2ec4b0e66d085f428c1afb96a4e98f6"/>
+    </file>
+    <file name="Network.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="7f943f71e7d01ea3bdf5c2f38cc849c8"/>
+    </file>
+    <file name="Resizer.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4e2549123a2d1d967161d56c6fee3b9f"/>
+    </file>
+    <file name="RichEdit_2_4_MJD.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="0ba6f0e9d606dca08f44e80e80559e9f"/>
+    </file>
+    <file name="RS232.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="fbef4865bfb61d396e7faacb089eca23"/>
+    </file>
+    <file name="scs11dc_code.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="35a3c1975fdb341873db2e4f266f3320"/>
+    </file>
+    <file name="scsCueMarkers.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="1a9386203896196579c6593475db5fbe"/>
+    </file>
+    <file name="scsLangAA.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="537385a8bbea3b1e8163922008f52326"/>
+    </file>
+    <file name="scsLangCA.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="8d481f6259a862a49860ed68f356ebee"/>
+    </file>
+    <file name="scsLangDE.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="7aec2b993c8c3856d160959828993be3"/>
+    </file>
+    <file name="scsLangENGB.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="328da34ad0818c5fa8e02089df4b30eb"/>
+    </file>
+    <file name="scsLangES.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4edc909b695b16ad91a6730f9ca065c9"/>
+    </file>
+    <file name="scsLangFR.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="24941896ff12d4c64d0f827cabba1dd8"/>
+    </file>
+    <file name="scsLangIT.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="0116ee873ed732012d93a1f76ad37a08"/>
+    </file>
+    <file name="scsLangJP.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="8f11b1b62794440dd59cae308afa4377"/>
+    </file>
+    <file name="scsLangPL.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="4fde3fec55f376fb61fd150689a1d95c"/>
+    </file>
+    <file name="scsLangZH.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5fcb3be44240121e8c4b56e1b011b845"/>
+    </file>
+    <file name="scs_lang_compiler_constants.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="bb1567ae04851a221cda03f7c8156844"/>
+    </file>
+    <file name="scs_lang_database.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="40f9919975b9f6f79769b60042a8155e"/>
+    </file>
+    <file name="ShortcutGadgetEx.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="f611262e165eb92563d2de9a7b4028d5"/>
+    </file>
+    <file name="Shortcuts.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="cdde29ee782e68cbd319f561155495fe"/>
+    </file>
+    <file name="SMSControl.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="166ce456cb7b407b23aa1334faceb2a4"/>
+    </file>
+    <file name="Sounds.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="64f716888a253f8edd86df5bdc9f732d"/>
+    </file>
+    <file name="SystemFonts.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6bc2e4dbafa6a191f657bc6d31c3bcf8"/>
+    </file>
+    <file name="tags.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="aaeea56e102627e9420faaa8061bebd2"/>
+    </file>
+    <file name="ToolBar.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="313956bc8b8bf198f894ae3cdce88350"/>
+    </file>
+    <file name="TouchScreenKeyboard.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3d7be926386632f5c367b679f3dadf44"/>
+    </file>
+    <file name="UndoRedo.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="3b29f4399a6a9cdcc8fd7d5480a2b2c6"/>
+    </file>
+    <file name="USBPowerStates.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="384d85ce2c6de1e7c35cfa4498de0856"/>
+    </file>
+    <file name="vMixControl.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="d9c061d762dc99769cd5a484df5d3763"/>
+    </file>
+    <file name="VSTRuntime.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="5efd1a5623fbbecd79041620dce80cce"/>
+    </file>
+    <file name="VUDisplay.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="12ad821ae022c5b79198f99f3d5905bb"/>
+    </file>
+    <file name="WordWrap.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="e2fcc59e9916c95e8838f7d45392ff56"/>
+    </file>
+    <file name="sACN.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="6f41e63c39f221d09ecc0bb59f8e2228"/>
+    </file>
+    <file name="TVideoGrabber_15.2.5.9.pbi">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" sortindex="999" panelstate="+"/>
+      <fingerprint md5="73106ccf68e904679b0a799789ac34ca"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="x64" enabled="1" default="1">
+      <inputfile value="scs_PB_x64.pb"/>
+      <outputfile value="Runtime\x64\scs11.exe"/>
+      <executable value="Runtime\x64\scs11.exe"/>
+      <directory value="Runtime\x64\"/>
+      <options unicode="1" thread="1" xpskin="1" onerror="1" debug="1" optimizer="0"/>
+      <purifier enable="0" granularity="1,1,8,1"/>
+      <icon enable="1">images\scs_icon6.ico</icon>
+    </target>
+  </section>
+</project>
