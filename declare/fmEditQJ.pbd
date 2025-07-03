@@ -1,0 +1,11 @@
+Declare WQJ_displaySub(pSubPtr)  ; subtype J = 'enable/disable cues'
+Declare WQJ_cboFirstCue_Click(Index)
+Declare WQJ_cboLastCue_Click(Index)
+Declare WQJ_optEnableDisable_Click(Index, bEnable)
+Declare WQJ_drawForm()
+Declare WQJ_Form_Load()
+Declare WQJ_formValidation()
+Declare WQJ_valGadget(nGadgetNo)
+Declare WQJ_EventHandler()
+Declare WQJ_adjustForSplitterSize()
+Declare.s WQJ_buildEnableDisableDesc(pSubPtr)

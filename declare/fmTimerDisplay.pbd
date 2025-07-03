@@ -1,0 +1,7 @@
+Declare WTI_Form_Unload()
+Declare WTI_Form_Load(bMakeWindowVisible)
+Declare WTI_Form_Resize()
+Declare WTI_cvsTimer_Event()
+Declare WTI_displayTimer(sProdTimer.s, bForceDisplay=#False)
+Declare WTI_EventHandler()
+Declare WTI_hideWindowIfInactive()

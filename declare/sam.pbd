@@ -1,0 +1,8 @@
+Declare samInit()
+Declare samAddRequestProc(pProcName.s, pRequest, p1Long=0, p2Single.f=0, p3Long=0, p4String.s="", qNotBefore.q=0, p5Long=0, pCuePtrForRequestTime=-1, pReplaceNotBefore=#True, bFullDuplicateTest=#False, p6Quad.q=0, p7Long=0, p8String.s="")
+Declare samCancelRequest(nRequest, p1Long=0)
+Declare samProcess()
+Declare.s decodeSamPriority(nSamPriority)
+Declare.s decodeSamRequest(nRequest, nSamPtr)
+Declare samListRequestsWaiting()
+Declare samListAllRequests()

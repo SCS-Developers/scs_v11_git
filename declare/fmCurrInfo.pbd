@@ -1,0 +1,6 @@
+Declare WCI_calcAggregateTimes()
+Declare WCI_drawTextArray(X, Y, Array asLeft.s(1), Array asRight.s(1), nMaxIndex, nLineHeight)
+Declare WCI_displayCurrInfo()
+Declare WCI_Form_Unload()
+Declare WCI_Form_Load()
+Declare WCI_EventHandler()

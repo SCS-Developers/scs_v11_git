@@ -1,0 +1,12 @@
+﻿Declare.i artnet_addDmxDataToQueue(*dmxData, cUniverseSlot.c, wBufferLength.w)
+Declare.i artnet_send_DmxData()
+Declare.i artnet_send_poll_response(nTargetId.i, sIpStrFixed.s)
+Declare.i artnet_send_poll_request()
+Declare artnet_addTimer(sName.s, *pFunction, qInterval.q, nCount.i, nActive.i)
+Declare.i artnet_process_timer(sTimerIdProc.s)
+Declare artnet_build_poll_reply(*pArtnetTxBufferProc)
+Declare artnet_build_poll_request(*pArtnetTxBufferProc)
+Declare.i artnet_thread(threadparam.i)
+Declare.i Artnet_init()
+Declare Artnet_close()
+

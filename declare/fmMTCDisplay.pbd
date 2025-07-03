@@ -1,0 +1,8 @@
+Declare WTC_Form_Unload()
+Declare WTC_Form_Load(bMakeWindowVisible)
+Declare WTC_Form_Resize()
+Declare WTC_cvsMTC_Event()
+Declare WTC_displayMTC(sMTCTime.s, pSubPtr, sPreRollText.s, bForceDisplay=#False)
+Declare WTC_fastDrawMTC(sMTCTime.s)
+Declare WTC_EventHandler()
+Declare WTC_hideWindowIfInactive()

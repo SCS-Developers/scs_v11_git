@@ -1,0 +1,7 @@
+Declare WCL_Form_Unload()
+Declare WCL_Form_Load(bMakeWindowVisible)
+Declare WCL_Form_Resize()
+Declare WCL_cvsClock_Event()
+Declare WCL_setCurrentTime()
+Declare WCL_displayClock()
+Declare WCL_EventHandler()

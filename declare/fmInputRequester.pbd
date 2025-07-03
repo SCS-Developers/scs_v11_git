@@ -1,0 +1,4 @@
+Declare WIR_Form_Unload()
+Declare WIR_Form_Show(bModal, nParentWindow, nRequesterType, nAction, sTitle.s, sHeading.s, sItem.s)
+Declare WIR_btnOK_Click()
+Declare WIR_EventHandler()

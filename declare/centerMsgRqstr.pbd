@@ -1,0 +1,3 @@
+Declare HookTimer(hwnd, uMsg, Event, Time)
+Declare HookCB ( uMsg , wParam , lParam)
+Declare scsMessageRequester(sTitle.s, sText.s, nFlags=#PB_MessageRequester_Ok)

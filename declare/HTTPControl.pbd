@@ -1,0 +1,5 @@
+Declare buildHTTPDevDesc(*pHTTPControl.tyHTTPControl)
+Declare.s buildHTTPSendString(pSubPtr, nCtrlSendIndex, bPrimaryFile=#True)
+Declare.i sendHTTPString(pMsg.s, pSubPtr, bAddCRLFIfReqd=#False, bCalledFromEditor=#False)
+Declare addHTTPStringToArray(pMsg.s, pSubPtr, bAddCRLFIfReqd=#False, bCalledFromEditor=#False)
+Declare.a SimpleHTTP_GET(nMsgIndex.i)

@@ -1,0 +1,7 @@
+Declare.l StreamCallback(handle.l, *buffer, length.l, *userData)
+Declare bassErrorDebug(nType)
+Declare.s asioFormatToReadableString(format)
+Declare.i THR_scsLTC(threadparam.i)
+Declare sendLTCCommand(sCommandToSend.s)
+Declare.s getLTCCurrentProgress(sLTCName.s)
+Declare.f dBToLinear(dB.f)

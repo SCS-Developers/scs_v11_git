@@ -1,0 +1,6 @@
+Declare WNE_Form_Unload()
+Declare WNE_Form_Load(bMakeWindowVisible)
+Declare WNE_Form_Resize()
+Declare WNE_cvsNearEnd_Event()
+Declare WNE_displayNearEndTime(nDisplayTime, pCuePtr, pSubPtr, nCuePosTimeOffset, bFileVisualWarningTimeAvailable) ; Added bFileVisualWarningTimeAvailable 30Sep2022 11.9.6
+Declare WNE_EventHandler()

@@ -1,0 +1,8 @@
+Declare WMI_Form_Unload()
+Declare WMI_Form_Load()
+Declare WMI_displayInfoMsg1(sInfoMsg1.s, nProgressMax=0, sWindowTitle.s="", nMinDisplayTime=1000)
+Declare WMI_updateInfoMsg1(sInfoMsg1.s)
+Declare WMI_displayInfoMsg2(sInfoMsg2.s)
+Declare WMI_setProgress(nProgressValue)
+Declare WMI_clearInfoMsgs()
+Declare WMI_EventHandler()

@@ -1,0 +1,12 @@
+Declare WQQ_displayParamsIfReqd()
+Declare WQQ_fcActionReqd()
+Declare WQQ_cboActionReqd_Click()
+Declare WQQ_cboCallCue_Click()
+Declare WQQ_cboSelHKBank_Click()
+Declare WQQ_drawForm()
+Declare WQQ_Form_Load()
+Declare WQQ_formValidation()
+Declare WQQ_valGadget(nGadgetNo)
+Declare WQQ_EventHandler()
+Declare WQQ_adjustForSplitterSize()
+Declare WQQ_displaySub(pSubPtr)  ; subtype Q = 'call cue'

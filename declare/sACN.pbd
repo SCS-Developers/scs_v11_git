@@ -1,0 +1,3 @@
+﻿; These names are the function names from the sACN.dll, they must come after the global defines
+Declare.i sACNInitialise(sMyn_sACNIp.s, cUniverse.c)            ; Initialise sACN, we pass in the n_sACNIp of the interface we are using to send sACN
+Declare.i sACNFinish(cUniverse.c)

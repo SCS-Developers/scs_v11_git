@@ -1,0 +1,3 @@
+Declare clearOtherOptionGadget2s(nEventGadgetNo, nEventGadgetPropsIndex)
+Declare handleWindowEvents()
+Declare doMainThreadRequests()

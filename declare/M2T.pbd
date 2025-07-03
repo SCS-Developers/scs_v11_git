@@ -1,0 +1,26 @@
+Declare M2T_processMoveToTimeShortcut()
+Declare M2T_displayMoveToTimeValueIfActive(h, nTimeValue, bLoadM2T=#False, bTrace=#True)
+Declare M2T_getCueStartTime(pCuePtr)
+Declare M2T_loadMoveToTimeInfo(pCuePtr, bTrace=#True)
+Declare M2T_adjustDependentCuesForMoveToTimeCue(pCuePtr, nTimeValue, bTrace=#True)
+Declare M2T_displayMoveToTimeInfo(bTrace=#True)
+Declare M2T_cancelMoveToTime(h)
+Declare M2T_cancelMoveToTimeDisplayIfActive()
+Declare M2T_clearAllMoveToTimeInfo()
+Declare M2T_setMoveToTimeSlider(h)
+Declare M2T_txtMoveToTime_Validate(h)
+Declare M2T_setSubCountDownIfReqd(nM2TItemIndex)
+Declare M2T_processSubTypeA(nM2TItemIndex) ; Video/Image sub-cue
+Declare M2T_processSubTypeF(nM2TItemIndex) ; Audio File sub-cue
+Declare M2T_processSubTypeL(nM2TItemIndex) ; Level Change sub-cue
+Declare M2T_processSubTypeM(nM2TItemIndex) ; Control Send sub-cue
+Declare M2T_processSubTypeS(nM2TItemIndex) ; SFR sub-cue
+Declare M2T_processSubTypeU(nM2TItemIndex) ; MTC/LTC sub-cue
+Declare M2T_btnMoveToTimeApply_Click(h)
+Declare M2T_btnMoveToTimeCancel_Click(h)
+Declare M2T_setOtherInfoPos(h)
+Declare M2T_calcAudRelStartTimes(pSubPtr)
+Declare M2T_sldMoveToTimePosition_Common(h, nSliderEventType)
+Declare M2T_setLinkedAudInfo(pAudPtr)
+Declare M2T_clearCueInds()
+Declare M2T_setCueInds()
