@@ -1,4 +1,5 @@
 ﻿; File: condev.pbi (connected devices)
+; Modified
 
 EnableExplicit
 
