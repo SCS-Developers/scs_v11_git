@@ -5383,5 +5383,3 @@ Procedure WOP_fcEnableAutoCheckForUpdate()
 EndProcedure
 
 ; EOF
-
-;test
