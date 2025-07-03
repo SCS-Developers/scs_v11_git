@@ -1,0 +1,56 @@
+﻿#include "dmxOut.h"
+#include <QNetworkProxy.h>
+#include <Windows.h>
+
+dmxOut::dmxOut(const QHostAddress & address, int port, unsigned int universe)
+{
+    m_address = address;
+    m_port = port;
+    m_sequence = 0;
+    m_universe = universe;
+
+    m_sock = new QUdpSocket;
+
+    // required by https://bugreports.qt.io/browse/QTBUG-58706
+    m_sock->setProxy(QNetworkProxy::NoProxy);
+
+    if (m_sock->open(QIODevice::WriteOnly))
+        qDebug("true ");
+
+    strcpy((char*) m_output, "Art-Net");
+    m_output[8] = 0x00;     // opcode
+    m_output[9] = 0x50;     // opcode
+    m_output[10] = 0x00;    // ver
+    m_output[11] = 0x0e;    // ver
+    // 12 is seqence
+    m_output[13] = 0x00;    // physical
+    m_output[14] = LOBYTE( m_universe );    // universe
+    m_output[15] = HIBYTE( m_universe); // universe
+    m_output[16] = 0x02;    // length
+    m_output[17] = 0x00;    // length
+}
+
+dmxOut::~dmxOut()
+{
+    delete m_sock;
+}
+
+void dmxOut::setDmxBuffer(const unsigned char * buffer)
+{
+    m_buffer = buffer;
+}
+
+bool dmxOut::send(void)
+{
+    if (!m_sequence)
+        m_sequence++;
+
+    m_output[12] = m_sequence++;
+    memcpy(&m_output[18], m_buffer, 512);
+    m_sock->writeDatagram((const char*) m_output, 18 + 512, m_address, m_port);
+
+    return false;
+
+}
+
+ 
